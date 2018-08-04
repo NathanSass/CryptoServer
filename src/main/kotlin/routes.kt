@@ -5,10 +5,14 @@ fun main(args: Array<String>) {
 
     val express = require("express")
     val app = express()
+    val expressHandlebars = require("express-handlebars")
+    val hbs = expressHandlebars.create()
+    app.engine("handlebars", hbs.engine)
+    app.set("view engine', 'handlebars")
 
     app.get("/", { req, res ->
         res.type("text/plain")
-        res.send("i am a beautiful butterfly")
+        res.render("test.handlebars")
     })
 
     app.listen(3000, {
