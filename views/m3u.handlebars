@@ -1,0 +1,13 @@
+#EXTM3U
+#EXT-X-VERSION:7
+#EXT-X-TARGETDURATION:{{duration}}
+
+{{#each chapters}}
+
+#EXTINF:{{this.duration}},
+{{this.url}}
+
+{{/each}}
+
+#EXT-X-ENDLIST
+
