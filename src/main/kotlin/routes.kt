@@ -53,13 +53,15 @@ object Factory {
     val audiobook : Audiobook by lazy {
 
         val chap1 = Chapter(1, 290,
-                crypto.randomBytes(16), crypto.randomBytes(16),
+                generateCrypto(), generateCrypto(),
                 "https://ia800504.us.archive.org/24/items/Item548HowToGoProWithAnEntryLevelDSLR/OMHT548.mp3")
         val chap2 = Chapter(2, 215,
-                crypto.randomBytes(16), crypto.randomBytes(16),
+                generateCrypto(), generateCrypto(),
                 "https://ia800500.us.archive.org/32/items/Item335HowToMeditate/OMHT335.mp3")
         return@lazy Audiobook(290 + 215, arrayOf(chap1, chap2))
     }
+
+    private fun generateCrypto() : ByteArray = crypto.randomBytes(16)
 }
 
 data class Audiobook(val duration: Long, val chapters: Array<Chapter>)
