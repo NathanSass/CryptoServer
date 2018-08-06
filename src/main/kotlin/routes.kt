@@ -39,9 +39,7 @@ fun main(args: Array<String>) {
     })
 
     app.get("/playlist/chapters/:chapterId/key", {req, res ->
-        console.log("DEBUG: Key for chapter: " + req.params.chapterId)
         val chapter = Factory.audiobook.chapters[req.params.chapterId]
-        console.log("DEBUG: Chapter key: " + chapter.key)
         res.setHeader("Content-Type", "binary/octet-stream")
         res.send(chapter.key)
     })
