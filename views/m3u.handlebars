@@ -3,9 +3,10 @@
 #EXT-X-TARGETDURATION:{{duration}}
 
 {{#each chapters}}
+#EXT-X-KEY:METHOD=AES-128,URI="/playlist/chapters/{{this.index}}/key",IV=0x{{this.ivPresentation}},KEYFORMAT="identity"
 
 #EXTINF:{{this.duration}},
-{{this.url}}
+/playlist/chapters/{{this.index}}/stream.mp3
 
 {{/each}}
 
